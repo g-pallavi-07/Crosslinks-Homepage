@@ -1,32 +1,126 @@
-#about-us{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.about-us-wrapper {
+    display: grid;
+    place-items: center;
+    /* This is a modern way to center an item horizontally and vertically */
+    width: 100%;
     height: 100vh;
-    margin: 20px;
+    align-items: center;
+    justify-content: center;
     box-sizing: border-box;
-    scroll-snap-type: x mandatory;
+
 }
-.about-heading h2{
-  font-size: 2.5rem;
-  margin: 0;
-  padding-bottom: 20px;
-  font-weight: 800;
-  font-family: 'Zalando Sans SemiExpanded', sans-serif;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);    
+
+/* --- SECTION CONTAINER (NOW A GLASS CARD) --- */
+#about-us {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    max-width: 1400px;
+    width: 100%;
+    /* Make it fill the wrapper, up to its max-width */
+
+    /* REMOVE THIS LINE - The wrapper handles it now */
+    /* margin: 5rem auto; */
+
+    padding: 3rem;
+    box-sizing: border-box;
+
+    /* Glassmorphism styles */
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
-.about-content p{
-  font-size: 1.2rem;
-  margin: 0 15%;
-  font-weight: 500;
-  font-family: 'Google sans code', sans-serif;
-  text-shadow: 0 0 5px rgba(255, 255, 255, 0.6);
-  line-height: 1.6;
-  margin: 50px;
+
+/* --- COLUMN 1: TEXT --- */
+.about-text-container {
+    flex: 1;
+    max-width: 60ch;
 }
-.about-image img{
-    width: 600px;
+
+.about-heading h2 {
+    font-size: 2.5rem;
+    margin: 0;
+    font-weight: 800;
+    font-family: 'Zalando Sans SemiExpanded', sans-serif;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+}
+
+.about-content p {
+    font-size: 1.1rem;
+    font-weight: 500;
+    font-family: 'Google sans code', sans-serif;
+    line-height: 1.7;
+    margin: 1.5rem 0 0 0;
+    /* text-shadow removed for cleanliness */
+}
+
+/* --- COLUMN 2: IMAGE --- */
+.about-image {
+    flex: 1;
+    max-width: 550px;
+}
+
+.about-image img {
+    width: 100%;
     height: auto;
     border-radius: 15px;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* --- MODERN DIVIDER --- */
+.divider-line {
+    border: 0;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.2);
+    width: 80%;
+    margin: 5rem auto;
+}
+
+/* --- RESPONSIVENESS (FOR MOBILE) --- */
+@media (max-width: 768px) {
+
+    /* Adjust wrapper padding for mobile */
+    .about-us-wrapper {
+        padding: 3rem 1rem;
+    }
+
+    #about-us {
+        flex-direction: column;
+        padding: 2rem;
+        /* 'width' is already 100%, which is great for mobile */
+    }
+
+    .about-text-container {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .about-content p {
+        text-align: left;
+    }
+
+    .about-image {
+        margin-top: 2.5rem;
+        max-width: 100%;
+    }
+
+    .divider-line {
+        margin: 3rem auto;
+    }
+}
+
+.about-content p {
+    text-align: left;
+    /* Keep paragraphs left-aligned for reading */
+}
+
+.about-image {
+    margin-top: 2.5rem;
+    /* Adds space between text and image on mobile */
+    max-width: 90%;
+    /* Prevents image from touching screen edges */
 }
