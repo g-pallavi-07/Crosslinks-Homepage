@@ -1,21 +1,30 @@
-
+.gallery-wrapper{
+    height:100vh;
+    width: 100%;
+    overflow:visible;
+    position: relative;
+    text-align: center;
+}
 .gallery-heading{
     font-size: 2.5rem;
     margin: 0;
     font-weight: 800;
     font-family: 'Zalando Sans SemiExpanded', sans-serif;
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
-    text-align: center;  
+    text-align: center; 
+    margin-bottom: 50px;
+
 }
 .gallery-container{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 30px;
-    align-items: center;
-    justify-content: center;
-    align-content: center;
-    margin: 60px;
-    
+    position: absolute;
+    width: 200px;
+    height: 250px;
+    top: 20%;
+    left: calc(50% - 100px);
+    transform-style: preserve-3d;
+    transform:perspective(1000px);
+    box-sizing: border-box;
+    animation: image-slider 40s linear infinite;
 }
 .gallery-photo{
     display: flex;
@@ -28,9 +37,21 @@
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     padding: 20px;
+    position: absolute;
+    inset: 0 0 0 0 ;
+    transform: 
+        rotateY(calc((var(--position) * 360deg)/9))
+        translateZ(550px);
+
+}
+@keyframes image-slider{
+    from{ transform:perspective(1000px) rotateY(0deg);
+    }to{ transform:perspective(1000px) rotateY(360deg);
+    }
 }
 .gallery-photo img{
-    max-width: 300px;
-    height: auto;
+    max-width: 100%;
+    height: 100%;
+    object-fit: cover;
     box-shadow: 0 0 30px #ffffffad;
 }
