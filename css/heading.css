@@ -25,3 +25,135 @@
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
   letter-spacing: 0.6em;
 }
+
+#contact {
+  color: white;
+  padding: 6rem 10%;
+  font-family: 'Google Sans Code', sans-serif;
+}
+
+.contact-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: left;
+}
+
+.contact-heading h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: white;
+  margin-bottom: 3rem;
+  letter-spacing: 1px;
+  text-shadow: 0 0 10px #a24bff;
+  position: relative;
+}
+
+.contact-heading h2::after {
+  content: "";
+  display: block;
+  width: 120px;
+  height: 3px;
+  background: linear-gradient(90deg, #a24bff, #00e0ff);
+  margin: 1rem auto 0;
+  border-radius: 10px;
+}
+
+.contact-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  align-items: flex-start;
+  gap: 3rem;
+  width: 100%;
+  max-width: 1100px;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+
+.inner-contact-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.inner-contact-container svg {
+  width: 22px;
+  height: 22px;
+  fill: #b57aff;
+  filter: drop-shadow(0 0 5px rgba(165, 90, 255, 0.5));
+}
+
+.inner-contact-container h3 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #fff;
+  margin: 0;
+}
+
+.social-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  text-align: right;
+}
+
+.inner-social-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.8rem;
+}
+
+.inner-social-container a {
+  color: #fff;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.inner-social-container a:hover {
+  color: #a24bff;
+  text-shadow: 0 0 8px #a24bff;
+}
+
+.inner-social-container svg {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s ease;
+}
+
+.inner-social-container svg:hover {
+  transform: scale(1.1);
+}
+
+.contact-container::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, #a24bff, transparent);
+  transform: translateX(-50%);
+  opacity: 0.3;
+}
+
+@media (max-width: 768px) {
+  .contact-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .social-info {
+    align-items: center;
+    text-align: center;
+  }
+
+  .inner-social-container {
+    justify-content: center;
+  }
+}
